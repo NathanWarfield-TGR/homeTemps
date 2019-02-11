@@ -3,7 +3,7 @@
   
   $results = DataManager::getCurrentTemps();
   for ($i=0; $i <$results->num_rows; $i++) {
-     $row = $result->fetch_assoc();
+     $row = $results->fetch_assoc();
      $phpInsideTemp  = $row['insideTemp'];
      $phpOutsideTemp = $row['outsideTemp'];
      $phpGarageTemp  = $row['garageTemp'];
