@@ -1,20 +1,15 @@
 <?php
-  require 'php/db_config.php';
+  require 'php/data_manager.php';
   
-  if (mysqli_connect_errno()) {
-     echo 'Error: Could not connect to database.  Please try again later.';
-     exit;
+  $results = DataManager::getCurrentTemps();
+  for ($i=0; $i <$results->num_rows; $i++) {
+     $row = $result->fetch_assoc();
+     $phpInsideTemp  = $row['insideTemp'];
+     $phpOutsideTemp = $row['outsideTemp'];
+     $phpGarageTemp  = $row['garageTemp'];
+     $phpPollingTime = date_create($row['pollingTime']);
   }
-
-  // First select current temps
-  $query = "SELECT  pollingTime, 
-                    insideTemp, 
-                    outsideTemp, 
-                    garageTemp 
-            from v_combinedTemps 
-            order by pollingTime desc limit 1";
-  $result = $mysqli->query($query);
-  $num_results = $result->num_rows;
+  $result->free();
   for ($i=0; $i <$num_results; $i++) {
      $row = $result->fetch_assoc();
      $phpInsideTemp  = $row['insideTemp'];
