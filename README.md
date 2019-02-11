@@ -62,10 +62,10 @@ Also if your repo is public on Github then don't check in your password files.  
 
 AJAX is async javascript.  The core concept is reloading data without the user page reloading or more specifically without the browser refreshing in order to send a new request to the server.  That's how PHP works, the page refreshes and a new request is made from the server.  You can use AJAX to call PHP.  It's more complicated but ultiamtely the same result.
 
-You seem to have a good handle on things.  I'd definately suggest trying to turn all the inside/outside/garage pages into a single page that can get data with some UI concept like a drop down or radio next.  So you'd have something like 
+You seem to have a good handle on things.  I'd definately suggest trying to turn all the inside/outside/garage pages into a single page that can get data with some UI concept like a drop down or radio next.  So you'd have something like: 
 
-history.php
+history.php<br/>
 index.php
 
-only with the user picking the options they want.  Then based on their selection you render the table.  Then you could try replacing the _data files with methods in a php class so you don't need a .php file for each data set.  Hopefully that answers some questions and doesn't raise to many new ones.  I know I recommended trying PHP but you can use any framework that runs on linux, but this looks good for a first pass.
+only with the user picking the options they want.  Then based on their selection you render the table.  Then you could try replacing the _data files with methods in a php class so you don't need a .php file for each data set.  This is called [Seperation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) and it makes code much easier to develop.  Hopefully that answers some questions and doesn't raise to many new ones.  I know I recommended trying PHP but you can use any framework that runs on linux, but this looks good for a first pass.
 
